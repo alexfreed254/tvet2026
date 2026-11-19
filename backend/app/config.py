@@ -1,5 +1,5 @@
 from pydantic_settings import BaseSettings
-from typing import List
+from typing import List, Union
 from pydantic import field_validator
 
 
@@ -14,7 +14,7 @@ class Settings(BaseSettings):
     SUPABASE_STORAGE_BUCKET: str = "evidence-files"
     SUPABASE_DB_URL: str
 
-    ALLOWED_ORIGINS: List[str] = ["http://localhost:5173"]
+    ALLOWED_ORIGINS: Union[str, List[str]] = ["http://localhost:5173"]
 
     JWT_SECRET: str
     JWT_ALGORITHM: str = "HS256"
