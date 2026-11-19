@@ -4,11 +4,13 @@
 
 A comprehensive digital platform for managing practical assessments in TVET (Technical and Vocational Education and Training) institutions.
 
-## 🚀 Quick Deploy to Render
+## 🚀 Quick Deploy
 
-**For fastest deployment, see [RENDER-QUICK-START.md](./RENDER-QUICK-START.md) (5 minutes)**
+**Recommended: Vercel (Frontend) + Railway (Backend)**
 
-For detailed instructions, see [DEPLOYMENT-GUIDE.md](./DEPLOYMENT-GUIDE.md)
+- **Quick Start**: [DEPLOYMENT-OPTIONS.md](./DEPLOYMENT-OPTIONS.md) - Compare platforms & deploy in 20 minutes
+- **Vercel Guide**: [VERCEL-DEPLOYMENT.md](./VERCEL-DEPLOYMENT.md) - Frontend deployment
+- **Alternative**: Deploy full-stack on Railway or Fly.io
 
 ## 📋 Features
 
@@ -71,15 +73,28 @@ TVET@2026/
 
 ## 🚀 Deployment
 
-### Render (Recommended)
+### Recommended Setup: Split Stack
 
-1. **Quick Start**: Follow [RENDER-QUICK-START.md](./RENDER-QUICK-START.md)
-2. **Detailed Guide**: See [DEPLOYMENT-GUIDE.md](./DEPLOYMENT-GUIDE.md)
-3. **Checklist**: Use [DEPLOYMENT-CHECKLIST.md](./DEPLOYMENT-CHECKLIST.md)
+- **Frontend**: Vercel (Fast CDN, auto-deploy)
+- **Backend**: Railway (Always-on, no timeouts)
+- **Database**: Supabase (Managed PostgreSQL + Auth + Storage)
 
-### Manual Deployment
+**Total Time**: ~20 minutes  
+**Total Cost**: ~$5/month
 
-See [DEPLOYMENT-GUIDE.md](./DEPLOYMENT-GUIDE.md) for Docker and other deployment options.
+See [DEPLOYMENT-OPTIONS.md](./DEPLOYMENT-OPTIONS.md) for complete comparison and guides.
+
+### Quick Deploy
+
+1. **Backend on Railway**: [Guide](./DEPLOYMENT-OPTIONS.md#part-1-deploy-backend-to-railway-10-min)
+2. **Frontend on Vercel**: [Guide](./VERCEL-DEPLOYMENT.md)
+3. Configure CORS and Supabase
+
+### Alternative Platforms
+
+- **Render**: Full-stack (free tier with cold starts)
+- **Fly.io**: Backend with Docker support
+- **Vercel Only**: Frontend + Serverless API (limited)
 
 ## 💻 Local Development
 
@@ -160,11 +175,10 @@ ALLOWED_ORIGINS=http://localhost:5173
 
 ## 📚 Documentation
 
-- [Deployment Guide](./DEPLOYMENT-GUIDE.md) - Complete deployment instructions
-- [Quick Start](./RENDER-QUICK-START.md) - 5-minute Render deployment
-- [Deployment Checklist](./DEPLOYMENT-CHECKLIST.md) - Step-by-step checklist
-- [Implementation Notes](./IMPLEMENTATION-NOTES.md) - Technical details
-- [API Documentation](http://localhost:8000/docs) - Interactive API docs (when running)
+- **[Deployment Options](./DEPLOYMENT-OPTIONS.md)** - Platform comparison and recommended setup
+- **[Vercel Deployment](./VERCEL-DEPLOYMENT.md)** - Frontend deployment guide
+- **[Implementation Notes](./IMPLEMENTATION-NOTES.md)** - Technical details
+- **[API Documentation](http://localhost:8000/docs)** - Interactive API docs (when running locally)
 
 ## 🔒 Security
 
