@@ -33,9 +33,17 @@ class Settings(BaseSettings):
     @field_validator("ALLOWED_ORIGINS", mode="before")
     @classmethod
     def parse_allowed_origins(cls, value):
+        # Handle None or empty string
+        if value is None or value == "":
+            return ["http://localhost:5173"]
+        # Handle string (comma-separated)
         if isinstance(value, str):
             return [origin.strip() for origin in value.split(",") if origin.strip()]
-        return value
+        # Handle list (already parsed)
+        if isinstance(value, list):
+            return value
+        # Fallback
+        return ["http://localhost:5173"]
 
     class Config:
         env_file = ".env"

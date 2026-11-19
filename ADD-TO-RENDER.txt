@@ -64,10 +64,12 @@ false
 
 ───────────────────────────────────────────────────────────────
 
-12. ALLOWED_ORIGINS
+12. ALLOWED_ORIGINS ⚠️ CRITICAL - Must be PLAIN TEXT, NOT JSON
 http://localhost:5173
 
-───────────────────────────────────────────────────────────────
+⚠️ IMPORTANT: Enter this as plain text: http://localhost:5173
+   DO NOT use JSON format like ["http://localhost:5173"]
+   For multiple origins, use comma-separated: http://localhost:5173,https://your-app.vercel.app──────────────────────────────────────────
 
 After adding all 12 variables:
 → Click "Save Changes"
