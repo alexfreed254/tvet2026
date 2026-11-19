@@ -4,13 +4,17 @@
 
 A comprehensive digital platform for managing practical assessments in TVET (Technical and Vocational Education and Training) institutions.
 
-## 🚀 Quick Deploy
+## 🚀 Quick Deploy (20 Minutes)
 
-**Recommended: Vercel (Frontend) + Railway (Backend)**
+**Recommended: Vercel (Frontend) + Railway (Backend) + Supabase (Database)**
 
-- **Quick Start**: [DEPLOYMENT-OPTIONS.md](./DEPLOYMENT-OPTIONS.md) - Compare platforms & deploy in 20 minutes
-- **Vercel Guide**: [VERCEL-DEPLOYMENT.md](./VERCEL-DEPLOYMENT.md) - Frontend deployment
-- **Alternative**: Deploy full-stack on Railway or Fly.io
+### 📖 Deployment Guides
+
+1. **[QUICK-START.md](./QUICK-START.md)** ⭐ - Step-by-step deployment in 20 minutes
+2. **[DEPLOYMENT-OPTIONS.md](./DEPLOYMENT-OPTIONS.md)** - Compare all platforms
+3. **[VERCEL-DEPLOYMENT.md](./VERCEL-DEPLOYMENT.md)** - Detailed Vercel guide
+
+**Total Cost**: ~$5/month
 
 ## 📋 Features
 
@@ -175,8 +179,9 @@ ALLOWED_ORIGINS=http://localhost:5173
 
 ## 📚 Documentation
 
-- **[Deployment Options](./DEPLOYMENT-OPTIONS.md)** - Platform comparison and recommended setup
-- **[Vercel Deployment](./VERCEL-DEPLOYMENT.md)** - Frontend deployment guide
+- **[Quick Start Guide](./QUICK-START.md)** ⭐ - Deploy in 20 minutes (step-by-step)
+- **[Deployment Options](./DEPLOYMENT-OPTIONS.md)** - Platform comparison and guides
+- **[Vercel Deployment](./VERCEL-DEPLOYMENT.md)** - Frontend deployment details
 - **[Implementation Notes](./IMPLEMENTATION-NOTES.md)** - Technical details
 - **[API Documentation](http://localhost:8000/docs)** - Interactive API docs (when running locally)
 
