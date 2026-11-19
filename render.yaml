@@ -3,7 +3,9 @@
 services:
   - type: web
     name: tvet-eassess-api
-    runtime: python
+    env: python
+    region: oregon
+    plan: free
     rootDir: backend
     buildCommand: pip install --upgrade pip && pip install -r requirements.txt
     startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
@@ -38,7 +40,9 @@ services:
 
   - type: web
     name: tvet-eassess-frontend
-    runtime: static
+    env: static
+    region: oregon
+    plan: free
     rootDir: frontend
     buildCommand: npm install && npm run build
     staticPublishPath: ./dist
