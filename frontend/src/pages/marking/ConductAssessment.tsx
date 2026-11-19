@@ -1,0 +1,1 @@
+import { useParams } from 'react-router-dom'; import { MarkingInterface } from '../../components/marking/MarkingInterface'; export function ConductAssessment(){const {sessionId=''}=useParams();return <MarkingInterface sessionId={sessionId}/>;}
