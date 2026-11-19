@@ -40,3 +40,4 @@ services:
         generateValue: true
       - key: ALLOWED_ORIGINS
         value: http://localhost:5173
+     
