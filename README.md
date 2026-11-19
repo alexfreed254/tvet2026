@@ -4,17 +4,22 @@
 
 A comprehensive digital platform for managing practical assessments in TVET (Technical and Vocational Education and Training) institutions.
 
-## 🚀 Quick Deploy (20 Minutes)
+## 🚀 Quick Deploy (25 Minutes) - FREE!
 
-**Recommended: Vercel (Frontend) + Railway (Backend) + Supabase (Database)**
+**Architecture: Vercel (Frontend) + Fly.io (Backend) + Supabase (Database)**
+
+```
+Frontend (Vercel) → Backend (Fly.io) → Database (Supabase)
+    FREE              FREE                FREE
+```
 
 ### 📖 Deployment Guides
 
-1. **[QUICK-START.md](./QUICK-START.md)** ⭐ - Step-by-step deployment in 20 minutes
-2. **[DEPLOYMENT-OPTIONS.md](./DEPLOYMENT-OPTIONS.md)** - Compare all platforms
-3. **[VERCEL-DEPLOYMENT.md](./VERCEL-DEPLOYMENT.md)** - Detailed Vercel guide
+1. **[DEPLOY-NOW.md](./DEPLOY-NOW.md)** ⭐ - Complete deployment in 25 minutes (with Supabase)
+2. **[SUPABASE-BACKEND.md](./SUPABASE-BACKEND.md)** - Detailed Supabase + Fly.io guide
+3. **[DEPLOYMENT-OPTIONS.md](./DEPLOYMENT-OPTIONS.md)** - Compare all platforms
 
-**Total Cost**: ~$5/month
+**Total Cost**: $0/month (All free tiers!)
 
 ## 📋 Features
 
@@ -77,28 +82,29 @@ TVET@2026/
 
 ## 🚀 Deployment
 
-### Recommended Setup: Split Stack
+### Recommended Setup: All Free Tiers! 🎉
 
 - **Frontend**: Vercel (Fast CDN, auto-deploy)
-- **Backend**: Railway (Always-on, no timeouts)
-- **Database**: Supabase (Managed PostgreSQL + Auth + Storage)
+- **Backend**: Fly.io (Always-on, no cold starts)
+- **Database**: Supabase (PostgreSQL + Auth + Storage)
 
-**Total Time**: ~20 minutes  
-**Total Cost**: ~$5/month
+**Total Time**: ~25 minutes  
+**Total Cost**: $0/month (All free tiers!)
 
-See [DEPLOYMENT-OPTIONS.md](./DEPLOYMENT-OPTIONS.md) for complete comparison and guides.
+See [DEPLOY-NOW.md](./DEPLOY-NOW.md) for step-by-step deployment.
 
 ### Quick Deploy
 
-1. **Backend on Railway**: [Guide](./DEPLOYMENT-OPTIONS.md#part-1-deploy-backend-to-railway-10-min)
-2. **Frontend on Vercel**: [Guide](./VERCEL-DEPLOYMENT.md)
-3. Configure CORS and Supabase
+1. **Setup Supabase**: [Guide](./DEPLOY-NOW.md#step-1-setup-supabase-database-5-min)
+2. **Deploy Backend to Fly.io**: [Guide](./DEPLOY-NOW.md#step-2-deploy-backend-to-flyio-10-min)
+3. **Deploy Frontend to Vercel**: [Guide](./DEPLOY-NOW.md#step-3-deploy-frontend-to-vercel-5-min)
+4. Configure CORS and Supabase
 
 ### Alternative Platforms
 
+- **Railway**: Backend alternative ($5/mo credit)
 - **Render**: Full-stack (free tier with cold starts)
-- **Fly.io**: Backend with Docker support
-- **Vercel Only**: Frontend + Serverless API (limited)
+- See [DEPLOYMENT-OPTIONS.md](./DEPLOYMENT-OPTIONS.md) for comparison
 
 ## 💻 Local Development
 
@@ -179,9 +185,9 @@ ALLOWED_ORIGINS=http://localhost:5173
 
 ## 📚 Documentation
 
-- **[Quick Start Guide](./QUICK-START.md)** ⭐ - Deploy in 20 minutes (step-by-step)
-- **[Deployment Options](./DEPLOYMENT-OPTIONS.md)** - Platform comparison and guides
-- **[Vercel Deployment](./VERCEL-DEPLOYMENT.md)** - Frontend deployment details
+- **[Deploy Now](./DEPLOY-NOW.md)** ⭐ - Deploy in 25 minutes (FREE - Vercel + Fly.io + Supabase)
+- **[Supabase Backend Guide](./SUPABASE-BACKEND.md)** - Using Supabase as your data layer
+- **[Deployment Options](./DEPLOYMENT-OPTIONS.md)** - Platform comparison
 - **[Implementation Notes](./IMPLEMENTATION-NOTES.md)** - Technical details
 - **[API Documentation](http://localhost:8000/docs)** - Interactive API docs (when running locally)
 
