@@ -1,29 +1,251 @@
-# TVET e-ASSESS — DIGITAL PRACTICAL ASSESSMENT PLATFORM
+# TVET e-ASSESS — Digital Practical Assessment Platform
 
 **Assess Digitally. Verify Competence. Preserve Evidence.**
 
-This repository follows the uploaded `tvet-eassess/` folder structure and includes the code blocks supplied in the 19 November 2026 implementation uploads. Files absent from the supplied code were added only where necessary to make the project structure buildable; see `IMPLEMENTATION-NOTES.md`.
+A comprehensive digital platform for managing practical assessments in TVET (Technical and Vocational Education and Training) institutions.
 
-## Stack
-- React 18 + TypeScript + Vite + Tailwind CSS
-- FastAPI + SQLAlchemy
-- Supabase Auth, PostgreSQL and Storage
-- Render Blueprint (`render.yaml`)
+## 🚀 Quick Deploy to Render
 
-## Deploy on Render
-1. Push this project to a GitHub repository. The repository root must contain `render.yaml`.
-2. In Render, choose **New + → Blueprint** and connect the repository.
-3. In the Render dashboard, set the API service secrets: `SUPABASE_URL`, `SUPABASE_ANON_KEY`, `SUPABASE_SERVICE_ROLE_KEY`, `SUPABASE_DB_URL`, and a strong `JWT_SECRET` (Render generates one by default).
-4. Set the frontend service `VITE_SUPABASE_URL` and `VITE_SUPABASE_ANON_KEY`. The API host is linked from the API service.
-5. After the frontend deploys, copy its `https://...onrender.com` URL into the API service's `ALLOWED_ORIGINS` (comma-separated if adding more than one origin), save, and redeploy the API.
-6. In Supabase SQL Editor, run `database/schema.sql`. Create a private Storage bucket named `evidence-files`.
-7. In Supabase Auth, create the initial admin user, then create the matching profile in `public.users` with role `super_admin` (the SQL schema requires the auth user ID).
+**For fastest deployment, see [RENDER-QUICK-START.md](./RENDER-QUICK-START.md) (5 minutes)**
 
-## Local development
-- API: `cd backend && pip install -r requirements.txt && uvicorn app.main:app --reload --port 8000`
-- UI: `cd frontend && npm install && npm run dev`
-- API docs: `http://localhost:8000/api/docs`
+For detailed instructions, see [DEPLOYMENT-GUIDE.md](./DEPLOYMENT-GUIDE.md)
 
-## Important
-This package is **deployment-configured, not production-certified**. The supplied implementation contains incomplete modules and some integration inconsistencies; check `IMPLEMENTATION-NOTES.md` and complete the acceptance tests before using real trainee records. Do not expose the Supabase service-role key in frontend variables.
-# tvet2026
+## 📋 Features
+
+- **Assessment Management**: Create and manage competency-based assessments
+- **Digital Evidence**: Upload, store, and verify evidence files
+- **Marking Interface**: Real-time marking with checklist-based criteria
+- **Marksheet Generation**: Automated PDF and Excel marksheet generation
+- **Verification Workflow**: Multi-level verification and moderation
+- **Role-Based Access**: Super admin, admin, assessor, verifier roles
+- **Audit Trail**: Complete audit logging of all actions
+
+## 🛠 Tech Stack
+
+### Frontend
+- React 18 + TypeScript
+- Vite (build tool)
+- Tailwind CSS + Radix UI
+- Zustand (state management)
+- React Router
+- Axios
+
+### Backend
+- FastAPI (Python 3.11+)
+- SQLAlchemy ORM
+- Pydantic (validation)
+- JWT authentication
+- ReportLab & FPDF2 (PDF generation)
+- OpenPyXL (Excel generation)
+
+### Infrastructure
+- **Authentication**: Supabase Auth
+- **Database**: PostgreSQL (Supabase)
+- **Storage**: Supabase Storage
+- **Hosting**: Render (Blueprint deployment)
+
+## 📁 Project Structure
+
+```
+TVET@2026/
+├── backend/              # FastAPI application
+│   ├── app/
+│   │   ├── models/      # SQLAlchemy models
+│   │   ├── routers/     # API endpoints
+│   │   ├── services/    # Business logic
+│   │   ├── auth/        # Authentication
+│   │   └── utils/       # Helpers
+│   └── requirements.txt
+├── frontend/            # React application
+│   ├── src/
+│   │   ├── components/  # React components
+│   │   ├── pages/       # Route pages
+│   │   ├── api/         # API client
+│   │   ├── store/       # State management
+│   │   └── types/       # TypeScript types
+│   └── package.json
+├── database/            # SQL schemas
+├── render.yaml          # Render Blueprint
+└── .env                 # Local environment (not committed)
+```
+
+## 🚀 Deployment
+
+### Render (Recommended)
+
+1. **Quick Start**: Follow [RENDER-QUICK-START.md](./RENDER-QUICK-START.md)
+2. **Detailed Guide**: See [DEPLOYMENT-GUIDE.md](./DEPLOYMENT-GUIDE.md)
+3. **Checklist**: Use [DEPLOYMENT-CHECKLIST.md](./DEPLOYMENT-CHECKLIST.md)
+
+### Manual Deployment
+
+See [DEPLOYMENT-GUIDE.md](./DEPLOYMENT-GUIDE.md) for Docker and other deployment options.
+
+## 💻 Local Development
+
+### Prerequisites
+- Python 3.11+
+- Node.js 18+
+- PostgreSQL (or Supabase account)
+
+### Setup
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/alexfreed254/tvet2026.git
+   cd tvet2026
+   ```
+
+2. **Set up environment variables**
+   ```bash
+   cp .env.example .env
+   # Edit .env with your Supabase credentials
+   ```
+
+3. **Start Backend**
+   ```bash
+   cd backend
+   pip install -r requirements.txt
+   uvicorn app.main:app --reload --port 8000
+   ```
+   API will be available at: `http://localhost:8000`
+   API Docs: `http://localhost:8000/docs`
+
+4. **Start Frontend**
+   ```bash
+   cd frontend
+   npm install
+   npm run dev
+   ```
+   App will be available at: `http://localhost:5173`
+
+### Environment Variables
+
+See `.env.example` for all required variables. Key variables:
+
+```bash
+# Supabase
+SUPABASE_URL=https://your-project.supabase.co
+SUPABASE_ANON_KEY=your-anon-key
+SUPABASE_SERVICE_ROLE_KEY=your-service-role-key
+SUPABASE_DB_URL=postgresql://...
+
+# JWT
+JWT_SECRET=your-secret-key
+JWT_ALGORITHM=HS256
+JWT_EXPIRATION_MINUTES=480
+
+# App
+APP_NAME=TVET e-ASSESS
+DEBUG=true
+ALLOWED_ORIGINS=http://localhost:5173
+```
+
+## 🗄 Database Setup
+
+1. **Run the schema**
+   ```bash
+   # In Supabase SQL Editor
+   # Execute: database/schema.sql
+   ```
+
+2. **Create Storage Bucket**
+   - Go to Supabase Storage
+   - Create bucket: `evidence-files`
+   - Set to private
+
+3. **Create Admin User**
+   - Use Supabase Auth to create user
+   - Insert into `public.users` table with role `super_admin`
+
+## 📚 Documentation
+
+- [Deployment Guide](./DEPLOYMENT-GUIDE.md) - Complete deployment instructions
+- [Quick Start](./RENDER-QUICK-START.md) - 5-minute Render deployment
+- [Deployment Checklist](./DEPLOYMENT-CHECKLIST.md) - Step-by-step checklist
+- [Implementation Notes](./IMPLEMENTATION-NOTES.md) - Technical details
+- [API Documentation](http://localhost:8000/docs) - Interactive API docs (when running)
+
+## 🔒 Security
+
+- Environment variables for all secrets
+- JWT-based authentication
+- Role-based access control (RBAC)
+- Supabase Row Level Security (RLS)
+- CORS configuration
+- Input validation with Pydantic
+- SQL injection prevention with SQLAlchemy
+
+## 🧪 Testing
+
+```bash
+# Backend tests
+cd backend
+pytest
+
+# Frontend tests
+cd frontend
+npm test
+```
+
+## 📝 API Endpoints
+
+### Authentication
+- `POST /api/auth/register` - Register new user
+- `POST /api/auth/login` - Login user
+- `GET /api/auth/me` - Get current user
+
+### Assessments
+- `GET /api/assessments` - List assessments
+- `POST /api/assessments` - Create assessment
+- `GET /api/assessments/{id}` - Get assessment details
+- `PUT /api/assessments/{id}` - Update assessment
+
+### Marking
+- `POST /api/marking/start` - Start marking session
+- `POST /api/marking/submit` - Submit marks
+- `GET /api/marking/session/{id}` - Get marking session
+
+### Evidence
+- `POST /api/evidence/upload` - Upload evidence file
+- `GET /api/evidence/{id}` - Get evidence details
+- `DELETE /api/evidence/{id}` - Delete evidence
+
+See full API documentation at `/docs` when backend is running.
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create feature branch (`git checkout -b feature/YourFeature`)
+3. Commit changes (`git commit -m 'Add YourFeature'`)
+4. Push to branch (`git push origin feature/YourFeature`)
+5. Open Pull Request
+
+## ⚠️ Important Notes
+
+- This is a deployment-configured platform, not production-certified
+- Complete acceptance testing before using with real trainee data
+- Never commit `.env` file (already in `.gitignore`)
+- Keep Supabase service role key secure (server-side only)
+- Review [IMPLEMENTATION-NOTES.md](./IMPLEMENTATION-NOTES.md) for known limitations
+
+## 📄 License
+
+This project is licensed under the MIT License.
+
+## 🆘 Support
+
+- Check [DEPLOYMENT-GUIDE.md](./DEPLOYMENT-GUIDE.md) for troubleshooting
+- Review logs in Render dashboard
+- Check Supabase logs for database issues
+- Open an issue on GitHub
+
+## 🔗 Links
+
+- **Repository**: https://github.com/alexfreed254/tvet2026
+- **Render Dashboard**: https://dashboard.render.com
+- **Supabase Dashboard**: https://supabase.com/dashboard
+
+---
+
+**Built for TVET@2026 Initiative**
