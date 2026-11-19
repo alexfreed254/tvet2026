@@ -16,24 +16,4 @@ httpx==0.25.2
 requests==2.31.0
 python-dotenv==1.0.0
 Pillow==10.1.0
-tvet-eassess/backend/Dockerfile
-dockerfile
-FROM python:3.11-slim
-
-WORKDIR /app
-
-RUN apt-get update && apt-get install -y \
-    gcc \
-    libpq-dev \
-    && rm -rf /var/lib/apt/lists/*
-
-COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
-
-COPY . .
-
-EXPOSE 8000
-
-CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
-
 email-validator==2.1.0.post1
