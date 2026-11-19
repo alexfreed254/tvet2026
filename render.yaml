@@ -38,6 +38,4 @@ services:
         sync: false
       - key: JWT_SECRET
         generateValue: true
-      - key: ALLOWED_ORIGINS
-        value: http://localhost:5173
      

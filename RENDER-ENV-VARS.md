@@ -63,11 +63,6 @@ TVET e-ASSESS
 false
 ```
 
-### 12. ALLOWED_ORIGINS
-```
-http://localhost:5173
-```
-
 ---
 
 ## 📋 Step-by-Step Instructions
@@ -82,9 +77,25 @@ http://localhost:5173
    - Copy the **Key** (e.g., `SUPABASE_URL`)
    - Copy the **Value** (the long string below it)
    - Click **Add**
-5. **After adding all 12 variables**:
+5. **After adding all 11 variables**:
    - Click **Save Changes**
    - Render will automatically redeploy
+
+---
+
+## 📝 Note about ALLOWED_ORIGINS
+
+**ALLOWED_ORIGINS is NOT set as an environment variable.**
+
+It uses the default value from `backend/app/config.py`:
+```python
+ALLOWED_ORIGINS: Union[str, List[str]] = ["http://localhost:5173"]
+```
+
+After deploying your frontend to Vercel, update this line in the code to add your Vercel URL:
+```python
+ALLOWED_ORIGINS: Union[str, List[str]] = ["http://localhost:5173", "https://your-app.vercel.app"]
+```
 
 ---
 
@@ -112,9 +123,10 @@ After adding all variables, you should have:
 - [ ] MAX_FILE_SIZE_MB
 - [ ] APP_NAME
 - [ ] DEBUG
-- [ ] ALLOWED_ORIGINS
 
-**Total: 12 environment variables**
+**Total: 11 environment variables**
+
+(ALLOWED_ORIGINS is not needed - it uses the default from code)
 
 ---
 

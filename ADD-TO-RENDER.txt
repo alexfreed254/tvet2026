@@ -64,16 +64,14 @@ false
 
 ───────────────────────────────────────────────────────────────
 
-12. ALLOWED_ORIGINS ⚠️ CRITICAL - Must be PLAIN TEXT, NOT JSON
-http://localhost:5173
-
-⚠️ IMPORTANT: Enter this as plain text: http://localhost:5173
-   DO NOT use JSON format like ["http://localhost:5173"]
-   For multiple origins, use comma-separated: http://localhost:5173,https://your-app.vercel.app──────────────────────────────────────────
-
-After adding all 12 variables:
+After adding all 11 variables:
 → Click "Save Changes"
 → Render will auto-redeploy (2-3 min)
 → Check logs for success!
+
+NOTE: ALLOWED_ORIGINS is NOT needed as an environment variable.
+      It uses the default value from code: ["http://localhost:5173"]
+      After deploying frontend to Vercel, update backend/app/config.py
+      to add your Vercel URL to the default list.
 
 ═══════════════════════════════════════════════════════════════
